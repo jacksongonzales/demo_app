@@ -11,6 +11,20 @@ end
 
 module DemoApp
   class Application < Rails::Application
+
+  config.action_mailer.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :domain               => "murmur.mygbiz.com",
+  :user_name            => "jacksongonzales@murmur.mygbiz.com",
+  :password             => "94DancingMen",
+  :authentication       => :plain,
+  :enable_starttls_auto => true
+  }
+
+  config.action_mailer.default_url_options = {
+    :host => "localhost:3000" #heroku domain here
+  }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

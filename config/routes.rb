@@ -4,7 +4,10 @@ DemoApp::Application.routes.draw do
 
   resources :users
 
+  match 'contact' => 'contact#new', :as => 'contact', :via => :get
+  match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
+  root :to => "contact#new"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
