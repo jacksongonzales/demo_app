@@ -1,13 +1,13 @@
 DemoApp::Application.routes.draw do
-  resources :microposts
-
-
   resources :users
 
-  match 'contact' => 'contact#new', :as => 'contact', :via => :get
-  match 'contact' => 'contact#create', :as => 'contact', :via => :post
+  resources :microposts
 
-  root :to => "contact#new"
+  match 'contact/:hash' => 'contact#new', :via => :get
+  match 'contact/:hash' => 'contact#create', :as => 'contact', :via => :post
+#  match 'contact/:hash' => 'contact#createform', :via => :get
+
+  root :to => "users#new"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
